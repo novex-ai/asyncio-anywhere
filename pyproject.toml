@@ -1,10 +1,17 @@
 [tool.poetry]
 name = "asyncio-anywhere"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python package that makes it easy to run fast asyncio code"
 authors = ["Brad Ito <phlogisticfugu@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "asyncio_anywhere"}]
+repository = "https://github.com/novex-ai/asyncio-anywhere"
+keywords = ["python", "asyncio", "jupyter", "trio", "curio"]
+
+[tool.poetry.urls]
+Changelog = "https://github.com/novex-ai/asyncio-anywhere/releases"
+Issues = "https://github.com/novex-ai/asyncio-anywhere/issues"
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -14,6 +21,10 @@ uvloop = { version = "^0.17.0", markers = "sys_platform == 'linux' or sys_platfo
 pytest = "^7.4.2"
 trio = "^0.22.2"
 curio = "^1.6"
+
+[tool.black]
+line-length = 88
+target-version = ['py37', 'py38', 'py39', 'py310', 'py311']
 
 [build-system]
 requires = ["poetry-core"]
