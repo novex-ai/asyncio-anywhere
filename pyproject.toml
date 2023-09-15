@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "asyncio-anywhere"
-version = "0.0.0"
+version = "0.1.0"
 description = "Python package that makes it easy to run fast asyncio code"
 authors = ["Brad Ito <phlogisticfugu@gmail.com>"]
 license = "MIT"
