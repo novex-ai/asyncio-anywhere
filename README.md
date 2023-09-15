@@ -14,7 +14,7 @@ It also seamlessly makes use of [uvloop](https://github.com/MagicStack/uvloop):
 - using uvloop without permanently the asyncio event loop policy
 
 Non Features:
-- [monkey-patching](https://github.com/erdewit/nest_asyncio) the asyncio module.  We want to avoid doing this because it may cause problems in future Python versions
+- asyncio-where does not [monkey-patch](https://github.com/erdewit/nest_asyncio) the asyncio module.  We want to avoid doing this because it may cause problems in future Python versions
 
 ## Usage
 
