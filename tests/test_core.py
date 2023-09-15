@@ -1,6 +1,6 @@
 import asyncio
 
-from asyncio_anywhere import run_async
+from asyncio_anywhere import asyncio_run
 
 
 def test_run_async():
@@ -8,4 +8,4 @@ def test_run_async():
         await asyncio.sleep(0.001)
         return 1
 
-    assert run_async(async_fn()) == 1
+    assert asyncio_run(async_fn()) == 1

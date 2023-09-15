@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__.split(".")[0])
 logger.addHandler(logging.NullHandler())
 
 
-def run_async(coro: Coroutine) -> Any:
+def asyncio_run(coro: Coroutine) -> Any:
     """
     Safely run an async coroutine synchronously (without await).
     Do this irregardless of the current execution environment (IPython-based notebook, script, etc)
@@ -28,7 +28,7 @@ def run_async(coro: Coroutine) -> Any:
         thread.join()
         return thread.result
     else:
-        return _fast_run_async(coro)
+        return _fast_asyncio_run(coro)
 
 
 class _AsyncRunnerThread(Thread):
@@ -42,10 +42,10 @@ class _AsyncRunnerThread(Thread):
         super().__init__()
 
     def run(self):
-        self.result = _fast_run_async(self.coro)
+        self.result = _fast_asyncio_run(self.coro)
 
 
-def _fast_run_async(coro: Coroutine) -> Any:
+def _fast_asyncio_run(coro: Coroutine) -> Any:
     if uvloop_installed:
         pre_existing_policy = asyncio.get_event_loop_policy()
         logger.debug("using uvloop for faster asyncio")

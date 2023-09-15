@@ -2,7 +2,7 @@ import asyncio
 
 import curio  # type: ignore
 
-from asyncio_anywhere import run_async
+from asyncio_anywhere import asyncio_run
 
 
 def test_curio():
@@ -12,7 +12,7 @@ def test_curio():
 
     async def curio_fn(x):
         await curio.sleep(0.001)
-        y = run_async(nested_asyncio_fn(x))
+        y = asyncio_run(nested_asyncio_fn(x))
         return y
 
     assert curio.run(curio_fn, 1) == 1

@@ -1,3 +1,3 @@
-from .core import run_async
+from .core import asyncio_run
 
-__all__ = ["run_async"]
+__all__ = ["asyncio_run"]

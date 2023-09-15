@@ -2,7 +2,7 @@ import asyncio
 
 import trio  # type: ignore
 
-from asyncio_anywhere import run_async
+from asyncio_anywhere import asyncio_run
 
 
 def test_trio():
@@ -12,7 +12,7 @@ def test_trio():
 
     async def trio_fn(x):
         await trio.sleep(0.001)
-        y = run_async(nested_asyncio_fn(x))
+        y = asyncio_run(nested_asyncio_fn(x))
         return y
 
     assert trio.run(trio_fn, 1) == 1
