@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "asyncio-anywhere"
+version = "0.0.0"
+description = "Python package that makes it easy to run fast asyncio code"
+authors = ["Brad Ito <phlogisticfugu@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+trio = "^0.22.2"
+curio = "^1.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
