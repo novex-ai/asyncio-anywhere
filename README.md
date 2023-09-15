@@ -1,6 +1,11 @@
 # asyncio-anywhere
 Python package that makes it easy to run fast asyncio code
 
+[![PyPI version](https://badge.fury.io/py/asyncio-anywhere.svg)](https://badge.fury.io/py/asyncio-anywhere)
+[![Release Notes](https://img.shields.io/github/release/novex-ai/asyncio-anywhere)](https://github.com/novex-ai/asyncio-anywhere/releases)
+[![pytest](https://github.com/novex-ai/asyncio-anywhere/actions/workflows/pytest.yml/badge.svg?branch=main)](https://github.com/novex-ai/asyncio-anywhere/actions/workflows/pytest.yml)
+[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
+
 Are you trying to run async code in Python and getting the error
 "asyncio.run() cannot be called from a running event loop"?
 This package makes it easy to run asyncio-based async code in tricky execution environments:
