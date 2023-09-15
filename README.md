@@ -14,9 +14,9 @@ This package makes it easy to run asyncio-based async code in tricky execution e
 - [trio](https://trio.readthedocs.io/en/stable/) applications
 - [curio](https://curio.readthedocs.io/en/latest/) applications
 
-It also seamlessly makes use of [uvloop](https://github.com/MagicStack/uvloop):
-- using dependency markers to only install it on supported operating systems
-- using uvloop without permanently the asyncio event loop policy
+Other Features:
+- use [uvloop](https://github.com/MagicStack/uvloop) for faster i/o - but without permanently changing the asyncio event loop policy
+- type hints to support type-aware IDEs
 
 Non Features:
 - asyncio-anywhere does not [monkey-patch](https://github.com/erdewit/nest_asyncio) the asyncio module.  We want to avoid doing this because it may cause problems in future Python versions
@@ -42,4 +42,4 @@ result = asyncio_run(myfunc())
 print(result)
 ```
 
-Use `asyncio_run` anwhere where you would normally have run `asyncio.run()`.
+Use `asyncio_run()` anwhere where you would normally have run [asyncio.run()](https://docs.python.org/3/library/asyncio-runner.html#asyncio.run).
