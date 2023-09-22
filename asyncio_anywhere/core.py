@@ -36,10 +36,10 @@ class _AsyncRunnerThread(Thread):
     adapted from https://stackoverflow.com/a/75094151/22484883
     """
 
-    def __init__(self, coro, debug):
-        self.coro = coro
-        self.debug = debug
-        self.result = None
+    def __init__(self, coro: Coroutine, debug: Union[None, bool]):
+        self.coro: Coroutine = coro
+        self.debug: Union[None, bool] = debug
+        self.result: Any = None
         super().__init__()
 
     def run(self):
@@ -62,7 +62,7 @@ def _fast_asyncio_run(coro: Coroutine, debug: Union[None, bool]) -> Any:
             asyncio.set_event_loop_policy(pre_existing_policy)
 
 
-def _safe_get_running_loop():
+def _safe_get_running_loop() -> Union[None, asyncio.AbstractEventLoop]:
     try:
         return asyncio.get_running_loop()
     except RuntimeError:
