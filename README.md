@@ -15,11 +15,13 @@ This package makes it easy to run asyncio-based async code in tricky execution e
 - [curio](https://curio.readthedocs.io/en/latest/) applications
 
 Other Features:
-- use [uvloop](https://github.com/MagicStack/uvloop) for faster i/o - but without permanently changing the asyncio event loop policy
-- type hints to support type-aware IDEs
+- Use [uvloop](https://github.com/MagicStack/uvloop) for faster i/o - but without permanently changing the asyncio event loop policy
+- Run any code which uses [asyncio](https://docs.python.org/3/library/asyncio.html) I/O.
+- Type hints to support type-aware IDEs
 
-Non Features:
-- asyncio-anywhere does not [monkey-patch](https://github.com/erdewit/nest_asyncio) the asyncio module.  We want to avoid doing this because it may cause problems in future Python versions
+Non-Features:
+- asyncio-anywhere does not [monkey-patch](https://github.com/erdewit/nest_asyncio) the asyncio module.  This avoids unexpected
+side-effects and potential future bugs.
 
 ## Usage
 
@@ -42,4 +44,4 @@ result = asyncio_run(myfunc())
 print(result)
 ```
 
-Use `asyncio_run()` anwhere where you would normally have run [asyncio.run()](https://docs.python.org/3/library/asyncio-runner.html#asyncio.run).
+Use `asyncio_run()` anywhere where you would normally have run [asyncio.run()](https://docs.python.org/3/library/asyncio-runner.html#asyncio.run).  Note that it also accepts a boolean `debug` parameter as the second parameter.
