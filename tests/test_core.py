@@ -24,3 +24,11 @@ def test_asyncio_run_debug():
 def test_invalid_input():
     with pytest.raises(ValueError):
         asyncio_run("not a coroutine")
+
+
+def test_non_coro_input():
+    def add(x, y):
+        return x + y
+
+    with pytest.raises(ValueError):
+        asyncio_run(add(1, 2))
